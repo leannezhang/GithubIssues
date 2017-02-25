@@ -1,32 +1,11 @@
 import React, {Component} from 'react'
-import IssueList from './IssueList'
-import {Pagination} from 'react-bootstrap'
-
-//const handleSelect = (event) => {
-//  console.log('handleSelect')
-//}
-
-const Home = (props) => {
-  const {handleSelect, activePage, items} = props
-  return (
-    <div>
-      <IssueList />
-      <Pagination
-        prev
-        next
-        first
-        last
-        items={items}
-        activePage={activePage}
-        onSelect={handleSelect} />
-    </div>
-  )
-}
+import Home from './Home'
+import api from '../../../api'
 
 export default class StatefulHome extends Component {
   // ES7
   state =  {
-    items: 9,
+    pageNumber: 9,
     activePage: 1
   }
   // ES6
@@ -35,7 +14,12 @@ export default class StatefulHome extends Component {
   //  this.state = {activePage: 0}
   //}
   handleSelect(eventKey) {
-    this.setState({activePage: eventKey})
+    // show spinner
+    api.getListIssuesPerPage('npm','npm', eventKey).then((npmJson) => {
+      console.log(npmJson)
+      this.setState({activePage: eventKey})
+      // stop spinner
+    })
   }
   //
   //const eee  = {a: 1111, b: 2222}
