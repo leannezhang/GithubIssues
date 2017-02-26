@@ -4,9 +4,11 @@
 import React from 'react'
 import IssueItem from './IssueItem'
 import {Table} from 'react-bootstrap'
+import _ from 'lodash'
+
 
 export default (props) => {
-  const {issues, isFetching} = props
+  const {issues, isFetching, handleDetailsPage} = props
   console.log(issues)
   return (
     <Table responsive>
@@ -23,13 +25,12 @@ export default (props) => {
       {
         issues.map((issue) => {
           return (
-            <tr key={issue.id}>
+            <tr onClick={()=>{handleDetailsPage(issue.number)}} key={issue.id}>
               <td>{issue.number}</td>
               <td>{issue.title}</td>
               <td>{issue.user.login}</td>
               <td><img src={issue.user.avatar_url} style={styles.avatar} /></td>
-              <td>{issue.body}</td>
-
+              <td>{issue.body.substring(0, 140)}</td>
             </tr>
           )
         })
@@ -38,6 +39,9 @@ export default (props) => {
     </Table>
   )
 }
+//const trimBody = (content) => {
+//  return _.
+//}
 
 const styles = {
   avatar : { width: 50, height: 50}
