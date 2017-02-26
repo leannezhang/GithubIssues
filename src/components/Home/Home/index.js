@@ -30,7 +30,7 @@ export default class StatefulHome extends Component {
     api.getListIssuesPerPage('npm', 'npm', eventKey).then((issues) => {
       this.setState({
         activePage: eventKey,
-        issues: issues
+        issues
       })
       // stop spinner
       this.setState({isFetching: false})

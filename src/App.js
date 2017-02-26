@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import Home from './components/Home'
 import Details from './components/Details'
-
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 export default class App extends Component {
 
   // TODO: navagation should be done through React Router
-  state = {
-    isDetail: false
-  }
   render() {
-    const {isDetail} = this.state
     return (
-      isDetail? <Details /> : <Home handleDetailsPage={(issueNumber) => { this.setState({isDetail: true}) } } />
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/details/:issueNumber" component={Details} />
+        </div>
+      </Router>
     )
   }
 }

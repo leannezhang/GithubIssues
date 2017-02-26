@@ -24,3 +24,12 @@ export const getListIssuesPerPage = async (owner, repo, page) => {
 
   return parsed
 }
+
+export const getIssue = async (owner, repo, issueNumber) => {
+  const url = endPoints.getIssue(owner, repo, issueNumber)
+
+  const data = await fetch(url)
+  const parsed = await data.json()
+
+  return parsed
+}

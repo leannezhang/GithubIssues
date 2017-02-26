@@ -5,6 +5,7 @@ import React from 'react'
 import IssueItem from './IssueItem'
 import {Table} from 'react-bootstrap'
 import _ from 'lodash'
+import { Link } from 'react-router-dom'
 
 
 export default (props) => {
@@ -25,7 +26,7 @@ export default (props) => {
       {
         issues.map((issue) => {
           return (
-            <tr onClick={()=>{handleDetailsPage(issue.number)}} key={issue.id}>
+            <tr onClick={()=> {window.location.href = `details/${issue.number}`} } key={issue.id}>
               <td>{issue.number}</td>
               <td>{issue.title}</td>
               <td>{issue.user.login}</td>
