@@ -6,7 +6,9 @@ export default class StatefulHome extends Component {
   // ES7
   state =  {
     pageNumber: 9,
-    activePage: 1
+    activePage: 1,
+    issues: [],
+    isFetching: false
   }
   // ES6
   //constructor() {
@@ -14,11 +16,24 @@ export default class StatefulHome extends Component {
   //  this.state = {activePage: 0}
   //}
   handleSelect(eventKey) {
+     this.getListIssues(eventKey)
+
+  }
+
+  componentDidMount() {
+    this.getListIssues(1)
+  }
+
+  getListIssues(eventKey) {
     // show spinner
-    api.getListIssuesPerPage('npm','npm', eventKey).then((npmJson) => {
-      console.log(npmJson)
-      this.setState({activePage: eventKey})
+    this.setState({isFetching: true})
+    api.getListIssuesPerPage('npm', 'npm', eventKey).then((issues) => {
+      this.setState({
+        activePage: eventKey,
+        issues: issues
+      })
       // stop spinner
+      this.setState({isFetching: false})
     })
   }
   //

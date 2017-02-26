@@ -19,8 +19,8 @@ const IssueItem = (props) => {
 }
 
 IssueItem.propTypes = {
-  issueNum: PropTypes.string.isRequired,
+  issueNum: PropTypes.number.isRequired,
   issueTitle: PropTypes.string.isRequired,
-  issueLabels: PropTypes.arrayOf(PropTypes.string)
+  issueLabels: PropTypes.array
 }
 export default IssueItem
