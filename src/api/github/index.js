@@ -33,3 +33,13 @@ export const getIssue = async (owner, repo, issueNumber) => {
 
   return parsed
 }
+
+
+export const getComments = async (owner, repo, issueNumber) => {
+  const url = endPoints.getComments(owner, repo, issueNumber)
+
+  const data = await fetch(url)
+  const parsed = await data.json()
+
+  return parsed
+}
