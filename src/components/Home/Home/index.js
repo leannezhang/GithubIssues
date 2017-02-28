@@ -25,6 +25,7 @@ export default class StatefulHome extends Component {
 
   getListIssues(eventKey) {
     // show spinner
+
     this.setState({isFetching: true})
     api.getListIssuesPerPage('npm', 'npm', eventKey).then((issues) => {
       this.setState({
@@ -44,6 +45,9 @@ export default class StatefulHome extends Component {
     const props = {...this.state, ...this.props}
     // const newState = Object.assign({}. this.state)
     // const newProp = Object.assign(newState, this.props)
+    if (props.isFetching) {
+        return <div>Loading...</div>
+    }
     return (
       <Home {...props} handleSelect={(eventKey) => { this.handleSelect(eventKey)} } />
     )
