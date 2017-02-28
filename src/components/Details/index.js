@@ -3,15 +3,18 @@
  */
 import React, {Component, PropTypes} from 'react'
 import api from '../../api'
+import DetailItem from './DetailItem'
 
 const Details = (props) => {
-  const {issueDetails} = props
+  const {issueDetails, isFetching } = props
+  console.log(issueDetails)
   return (
     <div>
-      {issueDetails.body}
+      {!isFetching && <DetailItem issueDetails={issueDetails} isFetching={isFetching} />}
     </div>
   )
 }
+
 Details.propTypes = {
   issueDetails: PropTypes.shape({
     body: PropTypes.string
@@ -28,7 +31,8 @@ export default class StatefulDetails extends Component {
   //}
 
   state = {
-    issueDetails: {}
+    issueDetails: {},
+    isFetching: false
   }
 
 
@@ -37,9 +41,16 @@ export default class StatefulDetails extends Component {
   // It's important to note that setting the state in this phase will not trigger
   // a re-rendering.
   componentWillMount() {
+    this.setState({isFetching: true})
+
     const {issueNumber} = this.props.match.params
+
     api.getIssue('npm', 'npm', issueNumber).then((issueDetails)=> {
-      this.setState({issueDetails})})
+      this.setState(
+        {
+        issueDetails,
+        isFetching: false
+      })})
   }
   render() {
     return (<Details {...{...this.state, ...this.props}}/>)

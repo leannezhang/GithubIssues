@@ -2,11 +2,14 @@
  * Created by zhangle on 2017-02-24.
  */
 import React from 'react'
-import IssueItem from './IssueItem'
 import {Table} from 'react-bootstrap'
 import _ from 'lodash'
 import { Link } from 'react-router-dom'
 
+const styles = {
+  avatar: { width: 50, height: 50},
+  row: {cursor: 'pointer'}
+}
 
 const IssueList =  (props) => {
   const {issues, isFetching, handleDetailsPage} = props
@@ -26,7 +29,7 @@ const IssueList =  (props) => {
       {
         issues.map((issue) => {
           return (
-            <tr onClick={()=> {window.location.href = `details/${issue.number}`} } key={issue.id}>
+            <tr style={styles.row} onClick={()=> {window.location.href = `details/${issue.number}`} } key={issue.id}>
               <td>{issue.number}</td>
               <td>{issue.title}</td>
               <td>{issue.user.login}</td>
@@ -44,8 +47,6 @@ const IssueList =  (props) => {
 //  return _.
 //}
 
-const styles = {
-  avatar : { width: 50, height: 50}
-}
+
 
 export default IssueList
