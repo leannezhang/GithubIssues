@@ -4,7 +4,6 @@
 import React from 'react'
 import {Table} from 'react-bootstrap'
 import _ from 'lodash'
-import { Link } from 'react-router-dom'
 
 const styles = {
   avatar: { width: 50, height: 50},
@@ -12,8 +11,7 @@ const styles = {
 }
 
 const IssueList =  (props) => {
-  const {issues, isFetching, handleDetailsPage} = props
-  console.log(issues)
+  const {issues} = props
   return (
     <Table responsive>
       <thead>
@@ -33,7 +31,7 @@ const IssueList =  (props) => {
               <td>{issue.number}</td>
               <td>{issue.title}</td>
               <td>{issue.user.login}</td>
-              <td><img src={issue.user.avatar_url} style={styles.avatar} /></td>
+              <td><img src={issue.user.avatar_url} style={styles.avatar}  alt='avatar'/></td>
               <td>{issue.body.substring(0, 140)}</td>
             </tr>
           )
@@ -46,7 +44,5 @@ const IssueList =  (props) => {
 //const trimBody = (content) => {
 //  return _.
 //}
-
-
 
 export default IssueList

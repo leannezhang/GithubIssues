@@ -4,13 +4,14 @@
 import React, {Component, PropTypes} from 'react'
 import api from '../../api'
 import DetailItem from './DetailItem'
+import CommentList from './CommentList'
 
 const Details = (props) => {
-  const {issueDetails, isFetching } = props
-  console.log(issueDetails)
+  const {issueDetails, isFetching, comments } = props
   return (
     <div>
-      {!isFetching && <DetailItem issueDetails={issueDetails} isFetching={isFetching} />}
+      {!isFetching && <DetailItem issueDetails={issueDetails} isFetching={isFetching}/>}
+      {!isFetching && <CommentList comments={comments} isFetching={isFetching}/>}
     </div>
   )
 }
@@ -32,6 +33,7 @@ export default class StatefulDetails extends Component {
 
   state = {
     issueDetails: {},
+    comments: [],
     isFetching: false
   }
 
@@ -44,16 +46,29 @@ export default class StatefulDetails extends Component {
     this.setState({isFetching: true})
 
     const {issueNumber} = this.props.match.params
+    Promise.all([
+      api.getIssue('npm', 'npm', issueNumber),
+      api.getComments('npm', 'npm', issueNumber)
+    ]).then((issue) => {
 
-    api.getIssue('npm', 'npm', issueNumber).then((issueDetails)=> {
+      const issueDetails = issue[0]
+      const comments = issue[1];
+      comments.unshift(issueDetails);
+
       this.setState(
-        {
-        issueDetails,
+        {issueDetails,
+          comments,
         isFetching: false
-      })})
+        }
+      )
+    })
   }
+
   render() {
-    return (<Details {...{...this.state, ...this.props}}/>)
+    const props = {...this.state, ...this.props}
+    return (
+      <Details {...props}/>
+    )
     //<Details issueDetails={this.state.issueDetails} />
   }
 }

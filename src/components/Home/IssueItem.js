@@ -1,6 +1,7 @@
 /**
  * Created by zhangle on 2017-02-24.
  */
+// this is currently not being used
 import React, {PropTypes} from 'react'
 
 const IssueItem = (props) => {

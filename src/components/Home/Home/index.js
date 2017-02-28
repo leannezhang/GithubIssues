@@ -17,7 +17,6 @@ export default class StatefulHome extends Component {
   //}
   handleSelect(eventKey) {
      this.getListIssues(eventKey)
-
   }
 
   componentDidMount() {

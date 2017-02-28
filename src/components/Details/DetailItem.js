@@ -4,13 +4,13 @@
 import {Table} from 'react-bootstrap'
 import React from 'react'
 
-
 const styles = {
   avatar: { width: 50, height: 50}
 }
 
 const DetailItem = (props) => {
-  const {issueDetails} = props
+  const {issueDetails, comments} = props
+  console.log(comments)
   return (
     <Table responsive>
       <thead>
