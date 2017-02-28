@@ -2,7 +2,7 @@ import React from 'react'
 import IssueList from '../IssueList'
 import {Pagination} from 'react-bootstrap'
 
-export default (props) => {
+const Home = (props) => {
   const {handleSelect, activePage, pageNumber, issues, isFetching} = props
   return (
     <div>
@@ -18,3 +18,4 @@ export default (props) => {
     </div>
   )
 }
+export default Home

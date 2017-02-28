@@ -8,7 +8,7 @@ import _ from 'lodash'
 import { Link } from 'react-router-dom'
 
 
-export default (props) => {
+const IssueList =  (props) => {
   const {issues, isFetching, handleDetailsPage} = props
   console.log(issues)
   return (
@@ -47,3 +47,5 @@ export default (props) => {
 const styles = {
   avatar : { width: 50, height: 50}
 }
+
+export default IssueList
