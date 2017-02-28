@@ -5,6 +5,7 @@ import React, {Component, PropTypes} from 'react'
 import api from '../../api'
 import DetailItem from './DetailItem'
 import CommentList from './CommentList'
+import Spinner from 'react-spinkit'
 
 const Details = (props) => {
   const {issueDetails, isFetching, comments } = props
@@ -66,6 +67,15 @@ export default class StatefulDetails extends Component {
 
   render() {
     const props = {...this.state, ...this.props}
+
+    if (props.isFetching) {
+      return (
+        <div>
+        <Spinner spinnerName="three-bounce" />
+        </div>
+      )
+    }
+
     return (
       <Details {...props}/>
     )

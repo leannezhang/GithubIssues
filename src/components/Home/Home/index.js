@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Home from './Home'
 import api from '../../../api'
+import Spinner from 'react-spinkit'
 
 export default class StatefulHome extends Component {
   // ES7
@@ -46,7 +47,7 @@ export default class StatefulHome extends Component {
     // const newState = Object.assign({}. this.state)
     // const newProp = Object.assign(newState, this.props)
     if (props.isFetching) {
-        return <div>Loading...</div>
+        return (<div>loading <Spinner spinnerName='three-bounce'/></div>)
     }
     return (
       <Home {...props} handleSelect={(eventKey) => { this.handleSelect(eventKey)} } />
