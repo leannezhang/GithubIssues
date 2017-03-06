@@ -1,14 +1,13 @@
-/**
- * Created by zhangle on 2017-02-27.
- */
 import React from 'react'
+import {convertMarkup} from '../Common/util'
 
 const CommentItem = ({comment}) => {
 
   return (
+
     <li className='list-group-item'>
-      {comment.user.login}
-      {comment.body}
+      <div>{`Username ${comment.user.login}`}</div>
+      <div dangerouslySetInnerHTML={convertMarkup(comment.body)}/>
     </li>)
 }
 

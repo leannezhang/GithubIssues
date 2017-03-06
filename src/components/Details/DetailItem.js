@@ -3,14 +3,15 @@
  */
 import {Table} from 'react-bootstrap'
 import React from 'react'
+import {convertMarkup} from '../Common/util'
 
 const styles = {
   avatar: { width: 50, height: 50}
 }
 
+
 const DetailItem = (props) => {
-  const {issueDetails, comments} = props
-  console.log(comments)
+  const {issueDetails} = props
   return (
     <Table responsive>
       <thead>
@@ -30,7 +31,7 @@ const DetailItem = (props) => {
         <td>{issueDetails.state}</td>
         <td>{issueDetails.user.login}</td>
         <td><img src={issueDetails.user.avatar_url} alt='avatar' style={styles.avatar} /></td>
-        <td>{issueDetails.body}</td>
+        <td dangerouslySetInnerHTML={convertMarkup(issueDetails.body)} />
       </tr>
       </tbody>
     </Table>

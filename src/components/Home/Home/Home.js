@@ -4,6 +4,7 @@ import {Pagination} from 'react-bootstrap'
 
 const Home = (props) => {
   const {handleSelect, activePage, pageNumber, issues, isFetching} = props
+
   return (
     <div>
       {!isFetching && <IssueList issues={issues} isFetching={isFetching} />}

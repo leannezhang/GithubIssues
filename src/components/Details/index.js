@@ -5,6 +5,7 @@ import React, {Component, PropTypes} from 'react'
 import api from '../../api'
 import DetailItem from './DetailItem'
 import CommentList from './CommentList'
+import Spinner from 'react-spinkit'
 
 const Details = (props) => {
   const {issueDetails, isFetching, comments } = props
@@ -46,14 +47,14 @@ export default class StatefulDetails extends Component {
     this.setState({isFetching: true})
 
     const {issueNumber} = this.props.match.params
+
     Promise.all([
       api.getIssue('npm', 'npm', issueNumber),
       api.getComments('npm', 'npm', issueNumber)
     ]).then((issue) => {
 
       const issueDetails = issue[0]
-      const comments = issue[1];
-      comments.unshift(issueDetails);
+      const comments = issue[1]
 
       this.setState(
         {issueDetails,
@@ -66,6 +67,15 @@ export default class StatefulDetails extends Component {
 
   render() {
     const props = {...this.state, ...this.props}
+
+    if (props.isFetching) {
+      return (
+        <div>
+        <Spinner spinnerName="three-bounce" />
+        </div>
+      )
+    }
+
     return (
       <Details {...props}/>
     )
