@@ -47,14 +47,14 @@ export default class StatefulDetails extends Component {
     this.setState({isFetching: true})
 
     const {issueNumber} = this.props.match.params
+
     Promise.all([
       api.getIssue('npm', 'npm', issueNumber),
       api.getComments('npm', 'npm', issueNumber)
     ]).then((issue) => {
 
       const issueDetails = issue[0]
-      const comments = issue[1];
-      comments.unshift(issueDetails);
+      const comments = issue[1]
 
       this.setState(
         {issueDetails,
