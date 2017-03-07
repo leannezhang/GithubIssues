@@ -1,13 +1,19 @@
-/**
- * Created by zhangle on 2017-02-24.
- */
 import React from 'react'
 import {Table} from 'react-bootstrap'
 import _ from 'lodash'
+import Marked from 'marked'
 
 const styles = {
   avatar: { width: 50, height: 50},
   row: {cursor: 'pointer'}
+}
+
+const convertMarkup = (markup) => {
+  console.log(markup)
+  Marked.setOptions({
+    gfm: false
+  })
+  return {__html: Marked(markup)}
 }
 
 const IssueList =  (props) => {
@@ -32,7 +38,7 @@ const IssueList =  (props) => {
               <td>{issue.title}</td>
               <td>{issue.user.login}</td>
               <td><img src={issue.user.avatar_url} style={styles.avatar}  alt='avatar'/></td>
-              <td>{issue.body.substring(0, 140)}</td>
+              <td dangerouslySetInnerHTML={convertMarkup(issue.body.substring(0, 140))} />
             </tr>
           )
         })
