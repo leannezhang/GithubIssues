@@ -1,43 +1,28 @@
 import React from 'react'
-import {Table} from 'react-bootstrap'
-import _ from 'lodash'
-import Marked from 'marked'
 import IssueItem from './IssueItem'
 
 const styles = {
-  avatar: { width: 50, height: 50},
-  row: {cursor: 'pointer'}
+  issueList: { border: '1px solid #e1e4e8', borderTop: 'none'}
 }
-
-const convertMarkup = (markup) => {
-  console.log(markup)
-  Marked.setOptions({
-    gfm: false
-  })
-  return {__html: Marked(markup)}
-}
-
-
 
 const IssueList =  (props) => {
   const {issues} = props
 
+  const handleNav = (issue) => {
+    window.location.href = `details/${issue.number}`
+  }
+
   return (
-      <div>
+      <div style={styles.issueList}>
       {
         issues.map((issue) => {
           return (
-           <IssueItem key={issue.id} issue={issue} onClick={()=> {console.log('I have been clicked');
-           window.location.href = `details/${issue.number}`} }/>
-
+           <IssueItem key={issue.id} issue={issue} onClick={handleNav.bind(null, issue)}/>
           )
         })
       }
       </div>
   )
 }
-//const trimBody = (content) => {
-//  return _.
-//}
 
 export default IssueList
