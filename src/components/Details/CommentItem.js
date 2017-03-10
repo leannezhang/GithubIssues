@@ -1,14 +1,18 @@
 import React from 'react'
 import {convertMarkup} from '../Common/util'
+import {Panel} from 'react-bootstrap'
+
+const styles = {
+  body: { wordWrap: 'break-word'}
+}
 
 const CommentItem = ({comment}) => {
 
   return (
-
-    <li className='list-group-item'>
-      <div>{`Username ${comment.user.login}`}</div>
-      <div dangerouslySetInnerHTML={convertMarkup(comment.body)}/>
-    </li>)
+      <Panel header={comment.user.login}>
+        <div dangerouslySetInnerHTML={convertMarkup(comment.body)} style={styles.body}/>
+      </Panel>
+  )
 }
 
 export default CommentItem

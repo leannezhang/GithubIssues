@@ -7,10 +7,16 @@ import DetailItem from './DetailItem'
 import CommentList from './CommentList'
 import Spinner from 'react-spinkit'
 
+const styles = {
+  container: { padding: '15px 15px' }
+}
+
+
 const Details = (props) => {
   const {issueDetails, isFetching, comments } = props
   return (
-    <div>
+    <div style={styles.container}>
+      <h4>NPM Issue Detail</h4>
       {!isFetching && <DetailItem issueDetails={issueDetails} isFetching={isFetching}/>}
       {!isFetching && <CommentList comments={comments} isFetching={isFetching}/>}
     </div>

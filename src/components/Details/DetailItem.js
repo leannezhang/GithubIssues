@@ -1,40 +1,52 @@
 /**
  * Created by zhangle on 2017-02-27.
  */
-import {Table} from 'react-bootstrap'
 import React from 'react'
 import {convertMarkup} from '../Common/util'
+import {Panel, Label} from 'react-bootstrap'
 
 const styles = {
-  avatar: { width: 50, height: 50}
+  row: { width: '100%', display: 'table'},
+  title: { float: 'left', width: '80%', wordWrap: 'break-word'},
+  number: { color: '#a3aab1'},
+  user: { display: 'table-cell', textAlign: 'center', verticalAlign: 'middle'},
+  avatar: { width: 40, height: 40},
+  summary: { wordWrap: 'break-word'},
+  clear: { clear: 'both'}
 }
 
 
 const DetailItem = (props) => {
   const {issueDetails} = props
   return (
-    <Table responsive>
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Issue Title</th>
-        <th>State</th>
-        <th>Reporter's user name</th>
-        <th>Avatar</th>
-        <th>Summary</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>{issueDetails.number}</td>
-        <td>{issueDetails.title}</td>
-        <td>{issueDetails.state}</td>
-        <td>{issueDetails.user.login}</td>
-        <td><img src={issueDetails.user.avatar_url} alt='avatar' style={styles.avatar} /></td>
-        <td dangerouslySetInnerHTML={convertMarkup(issueDetails.body)} />
-      </tr>
-      </tbody>
-    </Table>
+    <div>
+      <div>
+
+        <div style={styles.row}>
+          <div style={styles.title}>
+            <h2>{issueDetails.title}
+                <span style={styles.number}>{` #${issueDetails.number}`}</span>
+            </h2>
+          </div>
+          <div style={styles.user}>
+            <img src={issueDetails.user.avatar_url} alt={issueDetails.user.login} title={issueDetails.user.login}
+                 style={styles.avatar} />
+            <div>{issueDetails.user.login}</div>
+          </div>
+          <div style={styles.clear}></div>
+        </div>
+
+        <div style={styles.row}>
+          <h4><Label bsStyle="primary">{issueDetails.state}</Label></h4>
+        </div>
+
+      </div>
+      <div>
+        <Panel header={issueDetails.user.login}>
+          <div dangerouslySetInnerHTML={convertMarkup(issueDetails.body)} style={styles.summary} />
+        </Panel>
+      </div>
+    </div>
   )
 }
 

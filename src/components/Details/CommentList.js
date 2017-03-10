@@ -10,9 +10,9 @@ const CommentList = (props) => {
   })
 
   return (
-    <ul className='col-md-12 list-group'>
+    <div>
       {comments}
-    </ul>
+    </div>
   )
 
 }
