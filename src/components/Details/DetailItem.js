@@ -41,11 +41,13 @@ const DetailItem = (props) => {
         </div>
 
       </div>
+
       <div>
         <Panel header={issueDetails.user.login}>
           <div dangerouslySetInnerHTML={convertMarkup(issueDetails.body)} style={styles.summary} />
         </Panel>
       </div>
+
     </div>
   )
 }
