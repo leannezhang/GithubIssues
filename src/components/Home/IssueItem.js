@@ -6,7 +6,7 @@ import _ from 'lodash'
 const styles = {
   table: { display: 'table', width: '100%', borderTop: '1px solid #e1e4e8', paddingLeft: 20},
   row: { display: 'table-row', cursor: 'pointer'},
-  titleRow: { width: '80%', wordWrap: 'break-word', display: 'table-cell'},
+  titleRow: { width: '90%', wordWrap: 'break-word', display: 'table-cell', paddingTop: 10},
   title: { display: 'table-cell', fontWeight: 'bold'},
   number: { color: '#a3aab1'},
   user: { display: 'table-cell', textAlign: 'center', verticalAlign: 'middle', paddingTop: 15},
@@ -37,8 +37,9 @@ const IssueItem = (props) => {
 
       <div style={styles.row}>
         <div style={styles.titleRow}>
-          <div style={styles.number}>{`#${issue.number}`} </div>
-          <div style={styles.title}>{issue.title}</div>
+          <div style={styles.title}>
+            <span style={styles.number}>{`#${issue.number} `}</span>{issue.title}
+          </div>
           <div style={styles.summary}>
             {truncateSummary(convertMarkup(issue.body.substring(0, 150)))}
           </div>
