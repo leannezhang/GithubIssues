@@ -31,7 +31,6 @@ const IssueItem = (props) => {
 
   const {issue, onClick} = props
 
-
   return (
     <div style={styles.table} onClick={onClick}>
 
