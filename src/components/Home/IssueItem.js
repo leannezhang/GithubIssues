@@ -14,8 +14,8 @@ const styles = {
   summary: { wordWrap: 'break-word'}
 }
 
-const truncateSummary = (convertMarkup) => {
-  const text = htmlToText.fromString(convertMarkup.__html)
+const truncateSummary = (body) => {
+  const text = htmlToText.fromString(convertMarkup(body).__html)
   return _.truncate(text, {
     'length': 140,
     'separator': ' ',
@@ -41,7 +41,7 @@ const IssueItem = (props) => {
             <span style={styles.number}>{`#${issue.number} `}</span>{issue.title}
           </div>
           <div style={styles.summary}>
-            {truncateSummary(convertMarkup(issue.body.substring(0, 150)))}
+            {truncateSummary(issue.body)}
           </div>
         </div>
 
