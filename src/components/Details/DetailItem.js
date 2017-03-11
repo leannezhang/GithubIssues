@@ -7,12 +7,11 @@ import {Panel, Label} from 'react-bootstrap'
 
 const styles = {
   row: { width: '100%', display: 'table'},
-  title: { float: 'left', width: '80%', wordWrap: 'break-word'},
+  title: { width: '80%', wordWrap: 'break-word'},
   number: { color: '#a3aab1'},
   user: { display: 'table-cell', textAlign: 'center', verticalAlign: 'middle'},
   avatar: { width: 40, height: 40},
-  summary: { wordWrap: 'break-word'},
-  clear: { clear: 'both'}
+  summary: { wordWrap: 'break-word'}
 }
 
 
@@ -33,7 +32,6 @@ const DetailItem = (props) => {
                  style={styles.avatar} />
             <div>{issueDetails.user.login}</div>
           </div>
-          <div style={styles.clear}></div>
         </div>
 
         <div style={styles.row}>
@@ -41,11 +39,13 @@ const DetailItem = (props) => {
         </div>
 
       </div>
+
       <div>
         <Panel header={issueDetails.user.login}>
           <div dangerouslySetInnerHTML={convertMarkup(issueDetails.body)} style={styles.summary} />
         </Panel>
       </div>
+
     </div>
   )
 }

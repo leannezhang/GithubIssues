@@ -1,21 +1,13 @@
-/**
- * Created by zhangle on 2017-02-25.
- */
 import React, {Component, PropTypes} from 'react'
 import api from '../../api'
 import DetailItem from './DetailItem'
 import CommentList from './CommentList'
-import Spinner from 'react-spinkit'
-
-const styles = {
-  container: { padding: '15px 15px' }
-}
 
 
 const Details = (props) => {
   const {issueDetails, isFetching, comments } = props
   return (
-    <div style={styles.container}>
+    <div>
       <h4>NPM Issue Detail</h4>
       {!isFetching && <DetailItem issueDetails={issueDetails} isFetching={isFetching}/>}
       {!isFetching && <CommentList comments={comments} isFetching={isFetching}/>}
@@ -30,7 +22,7 @@ Details.propTypes = {
 }
 
 export default class StatefulDetails extends Component {
-  // ES7
+  // ES6
   //constructor(props) {
   //  super(props)
   //  this.state = {
@@ -77,7 +69,7 @@ export default class StatefulDetails extends Component {
     if (props.isFetching) {
       return (
         <div>
-        <Spinner spinnerName="three-bounce" />
+          Loading...
         </div>
       )
     }

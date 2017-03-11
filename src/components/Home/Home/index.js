@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import Home from './Home'
 import api from '../../../api'
-import Spinner from 'react-spinkit'
 
 export default class StatefulHome extends Component {
   // ES7
@@ -20,7 +19,7 @@ export default class StatefulHome extends Component {
      this.getListIssues(eventKey)
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getListIssues(1)
   }
 
@@ -31,10 +30,9 @@ export default class StatefulHome extends Component {
     api.getListIssuesPerPage('npm', 'npm', eventKey).then((issues) => {
       this.setState({
         activePage: eventKey,
-        issues
+        issues,
+        isFetching: false
       })
-      // stop spinner
-      this.setState({isFetching: false})
     })
   }
   //
@@ -47,7 +45,8 @@ export default class StatefulHome extends Component {
     // const newState = Object.assign({}. this.state)
     // const newProp = Object.assign(newState, this.props)
     if (props.isFetching) {
-        return (<div>loading <Spinner spinnerName='three-bounce'/></div>)
+        return (<div>Loading...
+        </div>)
     }
     return (
       <Home {...props} handleSelect={(eventKey) => { this.handleSelect(eventKey)} } />

@@ -1,54 +1,28 @@
 import React from 'react'
-import {Table} from 'react-bootstrap'
-import _ from 'lodash'
-import Marked from 'marked'
+import IssueItem from './IssueItem'
 
 const styles = {
-  avatar: { width: 50, height: 50},
-  row: {cursor: 'pointer'}
-}
-
-const convertMarkup = (markup) => {
-  console.log(markup)
-  Marked.setOptions({
-    gfm: false
-  })
-  return {__html: Marked(markup)}
+  issueList: { border: '1px solid #e1e4e8', borderTop: 'none'}
 }
 
 const IssueList =  (props) => {
   const {issues} = props
+
+  const handleNav = (issue) => {
+    window.location.href = `details/${issue.number}`
+  }
+
   return (
-    <Table responsive>
-      <thead>
-        <tr>
-          <th>Number</th>
-          <th>Title</th>
-          <th>User Name</th>
-          <th>Avatar</th>
-          <th>Body</th>
-        </tr>
-      </thead>
-      <tbody>
+      <div style={styles.issueList}>
       {
         issues.map((issue) => {
           return (
-            <tr style={styles.row} onClick={()=> {window.location.href = `details/${issue.number}`} } key={issue.id}>
-              <td>{issue.number}</td>
-              <td>{issue.title}</td>
-              <td>{issue.user.login}</td>
-              <td><img src={issue.user.avatar_url} style={styles.avatar}  alt='avatar'/></td>
-              <td dangerouslySetInnerHTML={convertMarkup(issue.body.substring(0, 140))} />
-            </tr>
+           <IssueItem key={issue.id} issue={issue} onClick={handleNav.bind(null, issue)}/>
           )
         })
       }
-      </tbody>
-    </Table>
+      </div>
   )
 }
-//const trimBody = (content) => {
-//  return _.
-//}
 
 export default IssueList
