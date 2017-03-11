@@ -33,7 +33,7 @@ const IssueItem = (props) => {
           <div>{issue.user.login}</div>
         </div>
       </div>
-      <div dangerouslySetInnerHTML={convertMarkup(issue.body.substring(0, 140))} />
+      <div dangerouslySetInnerHTML={convertMarkup(issue.body.substring(0, 140))} style={styles.summary} />
     </div>
   )
 }
