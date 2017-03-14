@@ -36,21 +36,23 @@ Then, render the LabelList component inside the IssueItem.
 ### Mock-up
 - Draw and identify reusable React components in the mock-up
 For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and CommentItem
-- ![Image of Issue Viewer Default ](https://octodex.github.com/images/Issue_Viewer_Default.png)
-- ![Image of Issue Viewer Details ](https://octodex.github.com/images/Issue_Viewer_Details.png)
+
+ ![Image of Issue Viewer Default ](docs/Issue_Viewer_Default.png)
+ ![Image of Issue Viewer Details ](docs/Issue_Viewer_Details.png)
 
 ### Structure
-- `Home`: consists of components related to a list of issues and default page
+- `components/Home`: consists of components related to a list of issues and default page
   Separated stateful components and stateless components
   Chose to follow higher order components patterns to pass stateful components to stateless components
   For example, pass stateless Home to StatefulHome
-- `Details`: consists of components related to Details page
-- `api/github`: consists of endpoints and I use fetch and Promise to make a get request
-- `Common`: consists of utility functions
+- `components/Details`: consists of components related to Details page
+- `components/Common`: consists of utility functions
+- `api/github`: consists of github issues endpoints
 
 ### Packages used
-- Chose to use `htmlToText` to convert html to text, and then use `lodash` to truncate to 140 characters
-- Chose to use `Marked` to convert github markup to valid html
+- `htmlToText`: convert from html to text
+- `lodash`: truncate to 140 characters
+- `Marked`: convert from github markup to html markup
 
 ### Styling
 - Majority of styling are written in inline styles
@@ -65,5 +67,8 @@ Thank you! If you have any questions, please feel free to email me at lzhang800@
 
 ## What the app looks like
 
-- ![Image of Issue Viewer Default ](https://octodex.github.com/images/Issue_Viewer_Result_Default.png)
-- ![Image of Issue Viewer Details ](https://octodex.github.com/images/Issue_Viewer_Result_Detail.png)
+### Npm issues default page
+![Image of Issue Viewer Default ](docs/result/Issue_Viewer_Result_Default.png)
+
+### Npm detail page
+![Image of Issue Viewer Details ](docs/result/Issue_Viewer_Result_Detail.png)
