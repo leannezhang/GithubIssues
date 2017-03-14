@@ -41,10 +41,7 @@ For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and C
  ![Image of Issue Viewer Details ](docs/Issue_Viewer_Details.png)
 
 ### Structure
-- `components/Home`: consists of components related to a list of issues and default page
-  Separated stateful components and stateless components
-  Chose to follow higher order components patterns to pass stateful components to stateless components
-  For example, pass stateless Home to StatefulHome
+- `components/Home`: consists of components related to a list of issues and separate components with stateless and stateful. <br />
 - `components/Details`: consists of components related to Details page
 - `components/Common`: consists of utility functions
 - `api/github`: consists of github issues endpoints
@@ -55,15 +52,15 @@ For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and C
 - `Marked`: convert from github markup to html markup
 
 ### Styling
-- Majority of styling are written in inline styles
-- Used `Panel` for comment panel and `Pagination` from `React-Bootstrap`
+- I wrote the majority of styles with inline styles
+- Used `Panel` for displaying comment and `Pagination` from `React-Bootstrap`
 
 ### Tests
 - Unit tests are written with Jest. 
 If there is more time, I will write more tests such as checking if endpoints have the valid responses, 
 navigation, and check if error messages have been handled correctly.
 
-Thank you! If you have any questions, please feel free to email me at lzhang800@gmail.com
+Thank you. If you have any questions, please feel free to email me at lzhang800@gmail.com
 
 ## What the app looks like
 
