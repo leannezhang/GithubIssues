@@ -69,5 +69,3 @@ Thank you. If you have any questions, please feel free to email me at lzhang800@
 
 ### Npm detail page
 ![Image of Issue Viewer Details ](docs/Issue_Viewer_Result_Detail.png)
-
-hey
