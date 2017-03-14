@@ -1,6 +1,3 @@
-/**
- * Created by zhangle on 2017-02-27.
- */
 import React from 'react'
 import {convertMarkup} from '../Common/util'
 import {Panel, Label} from 'react-bootstrap'

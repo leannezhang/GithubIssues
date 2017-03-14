@@ -1,6 +1,7 @@
 import React from 'react'
 import {convertMarkup} from '../Common/util'
 import {Panel} from 'react-bootstrap'
+import _ from 'lodash'
 
 const styles = {
   body: { wordWrap: 'break-word'}

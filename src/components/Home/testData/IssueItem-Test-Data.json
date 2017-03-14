@@ -1,0 +1,46 @@
+{
+  "url": "https://api.github.com/repos/npm/npm/issues/15933",
+  "repository_url": "https://api.github.com/repos/npm/npm",
+  "labels_url": "https://api.github.com/repos/npm/npm/issues/15933/labels{/name}",
+  "comments_url": "https://api.github.com/repos/npm/npm/issues/15933/comments",
+  "events_url": "https://api.github.com/repos/npm/npm/issues/15933/events",
+  "html_url": "https://github.com/npm/npm/issues/15933",
+  "id": 211702493,
+  "number": 15933,
+  "title": "npm search returns empty Object in callback",
+  "user": {
+    "login": "MexXxo",
+    "id": 2995156,
+    "avatar_url": "https://avatars3.githubusercontent.com/u/2995156?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/MexXxo",
+    "html_url": "https://github.com/MexXxo",
+    "followers_url": "https://api.github.com/users/MexXxo/followers",
+    "following_url": "https://api.github.com/users/MexXxo/following{/other_user}",
+    "gists_url": "https://api.github.com/users/MexXxo/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/MexXxo/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/MexXxo/subscriptions",
+    "organizations_url": "https://api.github.com/users/MexXxo/orgs",
+    "repos_url": "https://api.github.com/users/MexXxo/repos",
+    "events_url": "https://api.github.com/users/MexXxo/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/MexXxo/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "labels": [
+
+  ],
+  "state": "open",
+  "locked": false,
+  "assignee": null,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 4,
+  "created_at": "2017-03-03T14:29:19Z",
+  "updated_at": "2017-03-07T19:53:33Z",
+  "closed_at": null,
+  "body": "#### I'm opening this issue because:\r\n\r\n  - [ ] npm is crashing.\r\n  - [ ] npm is producing an incorrect install.\r\n  - [ X ] npm is doing something I don't understand.\r\n  - [ ] Other (_see below for feature requests_):\r\n\r\n#### What's going wrong?\r\nnpm search returns empty Object in callback\r\n\r\n#### How can the CLI team reproduce the problem?\r\nIt's happening using npm programmatically in node.\r\n\r\n```\r\n    npm.commands.search(['someModule'], function(err, data){\r\n        console.log('returned');\r\n        if (err) {\r\n            console.log(err);\r\n            return;\r\n        }\r\n        console.log(data); //data is not the search result instead it's an Object\r\n    });\r\n```\r\n\r\nLooking to the code, it comes from here: https://github.com/npm/npm/blob/latest/lib/search.js#L87\r\n",
+  "closed_by": null
+}

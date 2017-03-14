@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import IssueItem from './IssueItem'
 
 const styles = {
@@ -23,6 +23,11 @@ const IssueList =  (props) => {
       }
       </div>
   )
+}
+
+IssueList.propTypes = {
+  issues: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool
 }
 
 export default IssueList

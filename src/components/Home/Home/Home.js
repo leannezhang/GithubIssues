@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import IssueList from '../IssueList'
 import {Pagination} from 'react-bootstrap'
 
@@ -24,5 +24,13 @@ const Home = (props) => {
         </div>
     </div>
   )
+}
+
+Home.propTypes = {
+  issues: PropTypes.array.isRequired,
+  pageNumber: PropTypes.number,
+  activePage: PropTypes.number,
+  handleSelect: PropTypes.func,
+  isFetching: PropTypes.bool
 }
 export default Home
