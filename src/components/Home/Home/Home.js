@@ -5,6 +5,7 @@ import {Pagination} from 'react-bootstrap'
 const styles = {
   paginationContainer: { textAlign: 'center'}
 }
+// Stateless function component for Home
 const Home = (props) => {
   const {handleSelect, activePage, pageNumber, issues, isFetching} = props
 
