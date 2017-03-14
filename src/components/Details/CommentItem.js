@@ -11,7 +11,7 @@ const CommentItem = ({comment}) => {
 
   return (
       <Panel header={comment.user.login}>
-        <div dangerouslySetInnerHTML={ convertMarkup(comment.body)} style={styles.body}/>
+        <div dangerouslySetInnerHTML={convertMarkup(comment.body)} style={styles.body}/>
       </Panel>
   )
 }

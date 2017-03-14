@@ -14,7 +14,7 @@ const styles = {
   summary: { wordWrap: 'break-word'}
 }
 
-const truncateSummary = (body) => {
+export const truncateSummary = (body) => {
   const text = htmlToText.fromString(convertMarkup(body).__html)
   return _.truncate(text, {
     'length': 140,
@@ -23,11 +23,7 @@ const truncateSummary = (body) => {
   })
 }
 
-
 const IssueItem = (props) => {
-
-  // ES6: destructuring
-  // const issueNum = props.issueNum
 
   const {issue, onClick} = props
 
