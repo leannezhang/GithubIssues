@@ -65,7 +65,7 @@ Thank you. If you have any questions, please feel free to email me at lzhang800@
 ## What the app looks like
 
 ### Npm issues default page
-![Image of Issue Viewer Default ](docs/result/Issue_Viewer_Result_Default.png)
+![Image of Issue Viewer Default ](docs/Issue_Viewer_Result_Default.png)
 
 ### Npm detail page
-![Image of Issue Viewer Details ](docs/result/Issue_Viewer_Result_Detail.png)
+![Image of Issue Viewer Details ](docs/Issue_Viewer_Result_Detail.png)
