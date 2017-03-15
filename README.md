@@ -26,7 +26,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  
  **Default list page**
 - [x] List issues per 25 page 
-- [x] Navigate between pages at increment of 25
+- [x] Navigate between pages at increments of 25
 - [x] Display default page issues with number, title, user name, avatar, and 140 characters of the body
 - [ ] Display labels. (If I have more time, I will create a component LabelList which will store Label components.
                        Then, render the LabelList component inside the IssueItem.)
