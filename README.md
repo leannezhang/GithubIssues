@@ -44,7 +44,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Show off my styles
       
 ### Mock-up
-- Draw and identify reusable React components in the mock-up
+- Draw and identify reusable React components in the mock-up.
 For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and CommentItem
 
  ![Image of Issue Viewer Default ](docs/Issue_Viewer_Default.png)
