@@ -1,12 +1,6 @@
 ## NPM Issue Viewer App
-This is a new issue viewer application created with ReactJS.
-
-## Requirements
-- **Default List Page**: List 25 issues per page. In this case, we are loading from 
-[npm issues from github] (https://github.com/npm/npm/issues). Should only display the first 140 characters of the summary (ending on a clean word).
-- **Detail Page**: Click on an individual issue from the default page will take you to a new page that has the issue details.
-               Issue comments will be displayed. Names with @-notation will have a link to the user's Github page.
-- See [mock-up](#mock-up) below. 
+This is a new issue viewer application created with ReactJS. The trial project for this viewer is the [npm issues from github] (https://github.com/npm/npm/issues).
+[Mock-up](#mock-up) is available below. 
 
 ## Run this app
 
@@ -29,10 +23,28 @@ Run all tests using Jest.<br>
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ### Scope
-- Most of the requirements outlined are complete.
-- Exception: I have not worked on labels. If I have more time, I will create a component LabelList which will store Label components.
-Then, render the LabelList component inside the IssueItem.
+ 
+ **Default list page**
+- [x] List issues per 25 page.  In this case, we are loading from 
+- [x] Navigate between pages at increment of 25
+- [x] Display default page issues with number, title, user name, avatar, and 140 characters of the body
+- [ ] Display labels. (If I have more time, I will create a component LabelList which will store Label components.
+                       Then, render the LabelList component inside the IssueItem.)
+                       
+ **Issue details page**
+- [x] Click on an individual issue from default page will take you to a detail page
+- [x] Style individual issue page with title, state, user name, avatar, and summary
+- [x] Fetch comments and display comments if any
+- [x] Names with @-notation in the issue should link to the user's GitHub page
 
+  **Test**
+- [x] Unit tests are written with Jest. 
+      (First time working with Jest. If there is more time, I will write more tests such as checking if endpoints have the valid responses, 
+      navigation, and check if error messages have been handled correctly.)
+      
+  **Styling**
+- [x] Great design
+      
 ### Mock-up
 - Draw and identify reusable React components in the mock-up
 For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and CommentItem
@@ -55,10 +67,6 @@ For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and C
 - I wrote the majority of styles with inline styles
 - Used `Panel` for displaying comment and `Pagination` from `React-Bootstrap`
 
-### Tests
-- Unit tests are written with Jest. 
-If there is more time, I will write more tests such as checking if endpoints have the valid responses, 
-navigation, and check if error messages have been handled correctly.
 
 Thank you. If you have any questions, please feel free to email me at lzhang800@gmail.com
 
