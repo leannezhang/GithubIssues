@@ -37,13 +37,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Fetch comments and display comments if any
 - [x] Names with @-notation in the issue should link to the user's GitHub page
 
-  **Test**
+ **Others**
 - [x] Unit tests are written with Jest. 
       (First time working with Jest. If there is more time, I will write more tests such as checking if endpoints have the valid responses, 
       navigation, and check if error messages have been handled correctly.)
-      
-  **Styling**
-- [x] Great design
+- [x] Show off my styles
       
 ### Mock-up
 - Draw and identify reusable React components in the mock-up
