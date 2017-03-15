@@ -1,5 +1,5 @@
 ## NPM Issue Viewer App
-This is a new issue viewer application created with ReactJS. The trial project for this viewer is the [npm issues from github] (https://github.com/npm/npm/issues).
+This is a new issue viewer application created with ReactJS. The trial project for this viewer is the [npm issues from github](https://github.com/npm/npm/issues).
 [Mock-up](#mock-up) is available below. 
 
 ## Run this app
@@ -37,7 +37,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Fetch comments and display comments if any
 - [x] Names with @-notation in the issue should link to the user's GitHub page
 
- **Others**
+ **Test and Styling**
 - [x] Unit tests are written with Jest. 
       (First time working with Jest. If there is more time, I will write more tests such as checking if endpoints have the valid responses, 
       navigation, and check if error messages have been handled correctly.)
