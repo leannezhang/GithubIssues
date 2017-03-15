@@ -44,7 +44,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Show off my styles
       
 ### Mock-up
-- Draw and identify reusable React components in the mock-up.
+- Drew and identified reusable React components in the mock-up.
 For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and CommentItem
 
  ![Image of Issue Viewer Default ](docs/Issue_Viewer_Default.png)
@@ -57,9 +57,9 @@ For example: Home, IssueList, IssueItem, Details, DetailItem, CommentList, and C
 - `api/github`: consists of github issues endpoints
 
 ### Packages used
-- `htmlToText`: convert from html to text
-- `lodash`: truncate to 140 characters
-- `Marked`: convert from github markup to html markup
+- `htmlToText`: converts from html to text
+- `lodash`: truncates to 140 characters
+- `Marked`: converts from github markup to html markup
 
 ### Styling
 - I wrote the majority of styles with inline styles
